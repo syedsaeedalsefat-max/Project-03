@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary and generated files
+sample_downloads/
+*.log
+summary_report.txt
+organizer_manifest.json
+
+# Environment & IDE
+.vscode/
+.idea/
+.env
