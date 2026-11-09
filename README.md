@@ -1,120 +1,136 @@
 # File Organizer Tool
 
-A safe, easy-to-use tool that automatically organizes messy folders (such as your **Downloads** or **Desktop** folder) into neat, categorized subfolders.
+A safe, beginner-friendly Python tool that automatically cleans up unorganized folders (like your messy **Downloads** or **Desktop** folder) by sorting files into neat, categorized subfolders.
 
 ---
 
 ## What Does This Tool Do?
 
-When you run this tool on a messy folder, it automatically sorts your files into 5 clean folders:
+When you run this tool on any folder, it automatically sorts scattered files into 5 clean subfolders:
 
-| Folder Name | File Types Included |
+| Subfolder | File Types Included |
 |---|---|
-| **Images** | `.jpg`, `.jpeg`, `.png` |
-| **Documents** | `.pdf`, `.docx`, `.txt` |
-| **Videos** | `.mp4`, `.mkv` |
-| **Python Files** | `.py` |
-| **Others** | Any other files (e.g. `.zip`, `.mp3`, spreadsheets, notes without extension) |
+| 📁 **Images** | `.jpg`, `.jpeg`, `.png` |
+| 📁 **Documents** | `.pdf`, `.docx`, `.txt` |
+| 📁 **Videos** | `.mp4`, `.mkv` |
+| 📁 **Python Files** | `.py` |
+| 📁 **Others** | Any other format (e.g. `.zip`, `.mp3`, spreadsheets, files with no extension) |
 
-**Safety Guarantees:**
-- **No Overwriting:** If a file with the same name already exists in the destination folder, the tool automatically renames the incoming file (e.g., `invoice_1.pdf`, `invoice_2.pdf`). Your existing files are never overwritten or erased.
-- **Preview Mode:** You can preview the entire plan before moving any files.
-- **Undo Feature:** If you change your mind, you can undo the organization with one command to move everything back to where it started.
+### Safety Guarantees
+- 🛡️ **Zero Overwriting:** If a file with the same name already exists in the destination folder, the tool automatically renames the incoming file (e.g., `invoice_1.pdf`, `invoice_2.pdf`). Your existing files are **never** replaced or deleted.
+- 👁️ **Preview Mode:** A 100% safe simulation mode that shows you the exact movement plan without touching any files on your computer.
+- ↩️ **Full Undo / Rollback:** Organized the wrong folder? One click restores all files back to their exact original locations.
 
 ---
 
-## 1. Easy Installation
+## Step 1: Download the Project
 
-You do **not** need to install any external libraries or packages. The tool runs on standard Python.
+Choose either option below to get the project files onto your computer:
 
-### Step 1: Make Sure Python Is Installed
-1. Open your computer's terminal:
+### Option A: Direct Download (Easiest — No Git Required)
+1. Go to this repository on GitHub: **[https://github.com/syedsaeedalsefat-max/Project-03](https://github.com/syedsaeedalsefat-max/Project-03)**
+2. Click the green **Code** button near the top right.
+3. Click **Download ZIP**.
+4. Once downloaded, right-click the `.zip` file and select **Extract All...** (or double-click on Mac) to unzip it into a regular folder.
+
+### Option B: Using Git
+If you have Git installed, open your terminal and run:
+```bash
+git clone https://github.com/syedsaeedalsefat-max/Project-03.git
+cd Project-03
+```
+
+---
+
+## Step 2: Make Sure Python Is Installed
+
+The tool runs on standard Python. **No third-party packages or `pip install` commands are needed.**
+
+1. Open your terminal:
    - **Windows:** Press the **Windows Key**, type `cmd` or `PowerShell`, and press **Enter**.
    - **macOS:** Press **Command + Space**, type `Terminal`, and press **Enter**.
-2. Type this command and press **Enter**:
+2. Check your Python version:
    ```bash
    python --version
    ```
    *(If this gives an error, try `py --version` or `python3 --version`)*.
-3. If Python 3.8 or higher is displayed, you are ready to go.
-
-### Step 2: Open the Project Folder in Your Terminal
-1. Open the folder where this project is located:
-   ```
-   d:\Advanced Python\Project 03
-   ```
-2. **Easy Windows Shortcut:** Open File Explorer, go to this folder, click the address bar at the very top, type `cmd`, and press **Enter**. This opens a command window directly in this folder.
-3. Alternatively, in your terminal, type:
-   ```bash
-   cd "d:\Advanced Python\Project 03"
-   ```
+3. If Python 3.8 or higher is displayed, you are ready. If you do not have Python, download it free from [python.org](https://www.python.org/downloads/).
 
 ---
 
-## 2. Safe Testing (Try It in a Safe Environment)
+## Step 3: Open Terminal in the Project Folder
 
-Before organizing your real personal files, test the tool safely using either of these two built-in options:
+You need your terminal to be inside the unzipped `Project-03` folder:
 
-### Option A: Run the Automated Practice Demo (Recommended)
-We included a practice script called `demo.py`. It creates a temporary fake folder named `sample_downloads`, puts 13 dummy files in it (images, documents, videos, and duplicates), and shows you how the entire tool works without touching any of your real files.
+### On Windows (Easy Shortcut):
+1. Open the unzipped `Project-03` folder in **File Explorer**.
+2. Click directly on the **address bar** at the very top of the window (where the folder path is shown).
+3. Type `cmd` and press **Enter**.
+4. A Command Prompt window will open directly inside the project folder.
 
-1. In your terminal, run:
-   ```bash
-   python demo.py
-   ```
-2. You will see:
-   - A fake messy folder get created.
-   - **Preview Mode** run first to show the plan.
-   - **Execution Mode** sort the files into folders.
-   - A **Duplicate Test** showing how a duplicate file is safely renamed to `_1`.
-   - The summary report and log.
+### On macOS / Linux:
+1. Open your **Terminal**.
+2. Type `cd ` (with a space after it).
+3. Drag and drop the unzipped `Project-03` folder from Finder into your Terminal window, then press **Enter**.
+   *(Example: `cd ~/Downloads/Project-03`)*
 
-### Option B: Run the Automated Health Check (Unit Tests)
-To verify that all functions and safety checks are working properly:
+---
+
+## Step 4: Try It in a Safe Environment First
+
+Before running the tool on your personal files, test it safely using the built-in practice demo.
+
+### Run the Practice Demo
+In your terminal, type:
 ```bash
-python -m unittest test_organizer.py
+python demo.py
 ```
-**What you should see:**
-```text
-Ran 5 tests in 0.040s
+*(On Mac/Linux, use `python3 demo.py` if needed)*
 
-OK
-```
-If you see `OK`, the tool is 100% healthy and ready to use.
+### What the Demo Does:
+1. Creates a temporary practice folder called `sample_downloads` inside the project.
+2. Generates 13 dummy practice files (photos, contracts, code, videos, and duplicates).
+3. Runs **Preview Mode** to show what will happen without moving anything.
+4. Runs **Active Organization** to sort the dummy files into folders.
+5. Tests **Duplicate Renaming** to prove files are never overwritten.
+6. Prints a complete summary report and history log.
+
+**Your actual personal files are completely untouched during this demo.**
 
 ---
 
-## 3. Preview Mode (Explained Step-by-Step)
+## Step 5: How Preview Mode Works (Detailed Guide)
 
 ### What Is Preview Mode?
 Preview Mode is a **100% safe simulation (dry run)**. 
 
-- **It does NOT move any files.**
-- **It does NOT create any new folders.**
-- **It does NOT delete or rename anything.**
+- ❌ It does **NOT** move any files.
+- ❌ It does **NOT** create new folders.
+- ❌ It does **NOT** rename, modify, or delete anything.
 
-Instead, it scans your target folder and prints an exact blueprint showing:
-1. Every file that was found.
-2. What folder it will be moved into.
-3. What name it will have (including any `_1`, `_2` renames if duplicate names exist).
-4. A complete count of files per category.
+Instead, it scans your chosen folder and prints an exact blueprint showing:
+1. Every file detected.
+2. The category folder it will be placed in.
+3. How duplicate names will be safely resolved (e.g., `photo_1.jpg`).
+4. A category breakdown count.
 
-### Why You Should Always Use Preview Mode First
-Running Preview Mode allows you to review the plan and make sure you are happy with where files will go before any file on your computer is touched.
+### Why You Should Always Run Preview Mode First
+Running Preview Mode allows you to review the exact sorting plan and feel 100% confident before a single file on your computer is moved.
 
 ### How to Run Preview Mode
 
-#### Method A: Using the Simple Interactive Menu (Easiest)
+#### Method A: Using the Interactive Menu (Recommended)
 1. Run:
    ```bash
    python file_organizer.py
    ```
-2. The program asks for the folder path:
+2. The tool prompts:
    ```text
-   Enter the folder path to organize:
+   Enter folder path (or press Enter for default Downloads [C:\Users\Username\Downloads]):
    ```
-   Copy and paste your folder path (for example: `C:\Users\YourName\Downloads`) and press **Enter**.
-3. The menu appears:
+   - **To organize your default Downloads folder:** Simply press **Enter**! The tool automatically detects your system's Downloads folder.
+   - **To organize a different folder:** Paste the full folder path (e.g. `C:\Users\Username\Desktop\MessyFolder`) and press **Enter**.
+3. The interactive menu appears:
    ```text
    Select an action:
      [1] Preview Mode (Simulate planned organization safely)
@@ -125,33 +141,38 @@ Running Preview Mode allows you to review the plan and make sure you are happy w
    ```
 4. Type `1` and press **Enter**.
 
-#### Method B: Using the Direct Command
-If you prefer running it directly from one command:
-```bash
-python file_organizer.py "C:\Users\YourName\Downloads" --preview
-```
-*(Or use the shortcut `-p`: `python file_organizer.py "C:\Users\YourName\Downloads" -p`)*
+#### Method B: Using Direct Command
+You can also launch Preview Mode directly by specifying your folder:
+- **Windows:**
+  ```bash
+  python file_organizer.py "%USERPROFILE%\Downloads" --preview
+  ```
+- **macOS / Linux:**
+  ```bash
+  python3 file_organizer.py "~/Downloads" --preview
+  ```
+*(Short flag `-p` is also supported: `python file_organizer.py "~/Downloads" -p`)*
 
-### How to Read the Preview Output
-When Preview Mode runs, you will see output like this on your screen:
+### Understanding the Preview Output
+During Preview Mode, you will see output like this in your terminal:
 
 ```text
 [INFO] ============================================================
 [INFO] Starting File Organizer in [PREVIEW MODE]
-[INFO] Target Directory: C:\Users\YourName\Downloads
+[INFO] Target Directory: C:\Users\Username\Downloads
 [INFO] ============================================================
 [INFO] Found 4 file(s) to process.
 [INFO] [PLAN] 'family_pic.jpg'       -> Category: [Images]    -> Dest: 'family_pic.jpg'
-[INFO] [PLAN] 'work_contract.pdf'    -> Category: [Documents] -> Dest: 'work_contract.pdf'
-[INFO] [PLAN] 'vacation_video.mp4'   -> Category: [Videos]    -> Dest: 'vacation_video.mp4'
+[INFO] [PLAN] 'client_contract.pdf'  -> Category: [Documents] -> Dest: 'client_contract.pdf'
+[INFO] [PLAN] 'project_demo.mp4'     -> Category: [Videos]    -> Dest: 'project_demo.mp4'
 [INFO] [PLAN] 'family_pic.jpg'       -> Category: [Images]    -> Dest: 'family_pic_1.jpg'
 ```
 
-**What each line means:**
-- `[PLAN]`: Indicates this is just a simulation—no file was moved.
+**Line-by-line explanation:**
+- `[PLAN]`: Confirms this is only a simulation—no file was moved.
 - `'family_pic.jpg'`: The original name of the file in your folder.
 - `Category: [Images]`: The subfolder the tool plans to place it in.
-- `Dest: 'family_pic_1.jpg'`: The destination name. Notice that because another `family_pic.jpg` already exists, the tool automatically plans to save this copy as `family_pic_1.jpg` so neither photo is lost!
+- `Dest: 'family_pic_1.jpg'`: The planned destination name. Notice that because another `family_pic.jpg` already exists, the tool plans to save this copy as `family_pic_1.jpg` so neither photo is overwritten!
 
 At the end of the preview, you receive a summary box:
 ```text
@@ -159,7 +180,7 @@ At the end of the preview, you receive a summary box:
                  FILE ORGANIZER SUMMARY REPORT              
 ============================================================
 Timestamp       : 2026-11-09 21:00:00
-Target Directory: C:\Users\YourName\Downloads
+Target Directory: C:\Users\Username\Downloads
 Execution Mode  : Preview (No files were moved)
 Total Processed : 4 file(s)
 ------------------------------------------------------------
@@ -174,58 +195,60 @@ Category Breakdown:
 
 ---
 
-## 4. How to Run It (Moving Your Files)
+## Step 6: How to Organize Your Files (Execute)
 
-Once you are satisfied with the preview, you can run the actual organization.
+Once you have verified the preview and are happy with the plan, run the organization:
 
-### Step 1: Run the Interactive Organizer
-1. Run:
+### Method A: Through the Interactive Menu
+1. In your terminal, run:
    ```bash
    python file_organizer.py
    ```
-2. Type or paste your folder path and press **Enter**:
-   ```text
-   Enter the folder path to organize: C:\Users\YourName\Downloads
-   ```
-3. Type `2` to choose **Organize Files** and press **Enter**:
-   ```text
-   Enter choice (1-4): 2
-   ```
+2. Press **Enter** to use your default Downloads folder (or type another folder path and press Enter).
+3. Type `2` to select **Organize Files** and press **Enter**.
 
-### Step 2: What Happens Next
-1. The tool creates any missing category folders (`Images`, `Documents`, etc.) inside your folder.
-2. It moves each file into its proper category folder.
-3. If any duplicate names exist, it safely appends `_1`, `_2` so no files are overwritten.
-4. It creates two records inside your organized folder:
-   - **`summary_report.txt`**: A clean, readable summary of what was organized.
-   - **`organizer.log`**: A permanent history log with timestamps.
-   - **`organizer_manifest.json`**: A backup map used if you ever want to undo the operation.
+### Method B: Through Direct Command
+- **Windows:**
+  ```bash
+  python file_organizer.py "%USERPROFILE%\Downloads"
+  ```
+- **macOS / Linux:**
+  ```bash
+  python3 file_organizer.py "~/Downloads"
+  ```
 
-### Direct Command Shortcut
-If you prefer one-line commands without the interactive menu:
-```bash
-python file_organizer.py "C:\Users\YourName\Downloads"
-```
+### What Happens in Your Folder:
+1. The tool automatically creates the needed subfolders (`Images`, `Documents`, `Videos`, `Python Files`, `Others`).
+2. Each file is moved safely into its matching subfolder.
+3. If duplicates exist, incoming files are automatically renamed with `_1`, `_2` so no files are lost.
+4. Three record files are saved inside your organized folder:
+   - 📄 **`summary_report.txt`**: A readable text summary of what was moved.
+   - 📜 **`organizer.log`**: A complete timestamped log of all operations.
+   - 🗂️ **`organizer_manifest.json`**: An automatic backup map used if you ever choose to Undo.
 
 ---
 
-## 5. How to Undo (Rollback)
+## Step 7: How to Undo (Rollback)
 
-If you organized a folder by mistake, you can instantly revert everything back to normal:
+If you ever organize a folder by mistake, you can instantly revert everything back to normal.
 
-### Option 1: Through the Menu
+### Option A: Through the Menu
 1. Run `python file_organizer.py`
-2. Enter the folder path.
-3. Choose option `3` (**Rollback / Undo**).
+2. Select your folder.
+3. Type `3` (**Rollback / Undo**) and press **Enter**.
 
-### Option 2: Through the Command Line
-Run:
-```bash
-python file_organizer.py "C:\Users\YourName\Downloads" --undo
-```
-*(Or shortcut `-u`: `python file_organizer.py "C:\Users\YourName\Downloads" -u`)*
+### Option B: Through Direct Command
+- **Windows:**
+  ```bash
+  python file_organizer.py "%USERPROFILE%\Downloads" --undo
+  ```
+- **macOS / Linux:**
+  ```bash
+  python3 file_organizer.py "~/Downloads" --undo
+  ```
+*(Short flag `-u` is also supported)*
 
-**What Undo does:**
-- Moves every organized file back out of the category folders and returns them to the main folder.
-- Deletes the category subfolders if they are now empty.
-- Restores your folder to its original state.
+### What Undo Does:
+- Moves every organized file back out of the subfolders and returns them to the main folder.
+- Automatically deletes the category subfolders if they are left empty.
+- Restores your folder back to the way it was before.

@@ -373,17 +373,40 @@ class FileOrganizer:
         return report_text
 
 
+def get_default_downloads_folder() -> str:
+    """Detect and return the default Downloads folder path across operating systems."""
+    return os.path.join(os.path.expanduser("~"), "Downloads")
+
+
 def prompt_folder_path() -> str:
-    """Interactively prompt user for folder path and validate existence."""
+    """Interactively prompt user for folder path with default Downloads support."""
+    default_downloads = get_default_downloads_folder()
+    has_default = os.path.exists(default_downloads) and os.path.isdir(default_downloads)
+
     while True:
-        path = input("Enter the folder path to organize: ").strip()
+        if has_default:
+            prompt_msg = f"Enter folder path (or press Enter for default Downloads [{default_downloads}]): "
+        else:
+            prompt_msg = "Enter the folder path to organize: "
+
+        raw_path = input(prompt_msg).strip()
+
+        # If user pressed enter and default exists, use default
+        if not raw_path and has_default:
+            path = default_downloads
+        else:
+            path = raw_path
+
         if not path:
-            print("Folder path cannot be empty. Please try again.")
+            print("Folder path cannot be empty. Please enter a path.")
             continue
-        # Remove surrounding quotes if user copied path with quotes
+
+        # Strip surrounding quotes and expand user shortcuts like ~ or %USERPROFILE%
         path = path.strip("\"'")
+        path = os.path.expandvars(os.path.expanduser(path))
+
         if not os.path.exists(path):
-            print(f"Error: Path '{path}' does not exist. Please enter a valid path.")
+            print(f"Error: Path '{path}' does not exist. Please check the path and try again.")
             continue
         if not os.path.isdir(path):
             print(f"Error: Path '{path}' is not a directory. Please enter a directory path.")
@@ -450,7 +473,10 @@ def main():
     is_interactive = (args.folder is None and not args.preview and not args.undo)
 
     # Get target directory from arg or prompt
-    target_dir = args.folder if args.folder else prompt_folder_path()
+    if args.folder:
+        target_dir = os.path.expandvars(os.path.expanduser(args.folder.strip("\"'")))
+    else:
+        target_dir = prompt_folder_path()
 
     preview_mode = args.preview
     undo_mode = args.undo
